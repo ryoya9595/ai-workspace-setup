@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作業フォルダのセットアップ</title>
+<meta name="description" content="Claude Code で作業するための「作業フォルダ」を作って、GitHub（非公開）につなぐ導入マニュアル。このページのURLを Claude Code に貼るだけで、Claude Code が1つずつ案内してくれます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .ai-box{border:2px dashed var(--accent);background:#fff;border-radius:16px;padding:20px 24px;margin-top:18px;font-size:.88rem;color:var(--ink-soft)}
+  .ai-box b{color:var(--ink)}
+  .ai-box code{background:var(--paper-2);padding:2px 8px;border-radius:6px;font-size:.8rem;word-break:break-all}
+  .card code{background:var(--paper-2);padding:2px 8px;border-radius:6px;font-size:.82rem}
+  .card .inline-cmd code{background:transparent;padding:0;font-size:inherit}
+  .start-card{border:2px solid var(--accent)}
+  .get-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px}
+  .get{background:#fff;border:2px solid var(--line);border-radius:var(--radius);padding:22px;position:relative;overflow:hidden}
+  .get .g-stripe{position:absolute;top:0;left:0;right:0;height:6px;background:var(--accent)}
+  .get .g-label{font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--accent-deep)}
+  .get h3{font-size:1.08rem;font-weight:900;margin:6px 0 8px}
+  .get p{font-size:.88rem;color:var(--ink-soft)}
+  .shot{width:100%;border-radius:12px;border:1px solid var(--line);margin-top:12px}
+  @media(max-width:640px){.get-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="logo" href="./">🗂 作業フォルダの <span class="brain">セットアップ</span></a>
+    <nav class="topnav">
+      <a href="#start">はじめ方</a>
+      <a href="#what">できること</a>
+      <a href="#ready">準備</a>
+      <a href="#install">流れ</a>
+      <a href="#trouble">困ったとき</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-badge accent">Claude Code 作業フォルダ セットアップ</div>
+  <h1>AIの「事務所」を作って、<br><span class="hl">GitHub にしまっておく。</span></h1>
+  <p class="lead">Claude Code で作業するための「作業フォルダ」を作って、GitHub（非公開）につなぎます。このページの<strong>URLを Claude Code に貼るだけ</strong>で、Claude Code が1つずつ案内してくれます。</p>
+  <div class="meta">
+    <span class="chip accent">所要時間 15分〜20分</span>
+    <span class="chip">🍎 Mac / 🪟 Windows</span>
+    <span class="chip">GitHub アカウント（無料）</span>
+    <span class="chip">Pro・Max プラン</span>
+  </div>
+</header>
+
+<main>
+
+<!-- はじめ方（URLを貼るだけ） -->
+<section id="start" style="padding-top:8px">
+  <div class="card start-card">
+    <h3>🚀 はじめ方 — URLを貼るだけ</h3>
+    <ol>
+      <li><strong>ホームフォルダ（自分の名前のフォルダ）</strong>の中に、空のフォルダを1つ作る（名前の例：<code>ai-agent</code>）</li>
+      <li>Claude Code で、そのフォルダを開く</li>
+      <li>下の「コピー」を押して、このページのURLを Claude Code に貼り付けて送信</li>
+      <li>あとは Claude Code の案内どおりに、「許可」や GitHub のボタンを押すだけ</li>
+    </ol>
+    <div class="inline-cmd" style="margin-top:12px"><code id="pageUrl"></code><button class="copy-btn" data-target="pageUrl">コピー</button></div>
+  </div>
+
+  <div class="ai-box">
+    🤖 <b>Claude Code へ（このページのURLを貼られたとき）：</b>このページは、AI副業スクールRISEの講師 関 諒也が受講生向けに作った導入手順です（AI自動化講座 第3回）。ユーザーがこのページのURLを送ってきたら、「今開いているフォルダを作業フォルダにして、GitHub（非公開）につなぐ」セットアップの案内を希望しています。ユーザーに「作業フォルダのセットアップを始めますね」と一言伝えてから、手順書の原文 <code>https://ryoya9595.github.io/ai-workspace-setup/setup.md</code> を curl（Windows は <code>curl.exe</code>）で取得して全文を読み（要約ツールではなく原文を読む。作業フォルダには保存しない）、その手順どおりに1〜3手順ずつ、やさしい日本語で案内してください。インストールやファイル作成の前には、手順書のとおりユーザーの了承を取ってください。
+  </div>
+</section>
+
+<!-- 01 できること -->
+<section id="what">
+  <div class="sec-head"><div class="step-num">01</div><h2>URLを貼ると、この4つが終わります</h2></div>
+  <div class="get-grid">
+    <div class="get"><div class="g-stripe"></div><div class="g-label">1</div><h3>GitHub とつなぐ準備</h3><p>必要な道具を入れて、GitHub にログインします。</p></div>
+    <div class="get"><div class="g-stripe"></div><div class="g-label">2</div><h3>作業フォルダの中身づくり</h3><p>AIへのルール、秘密の情報を GitHub に上げない設定、記録用のフォルダを作ります。</p></div>
+    <div class="get"><div class="g-stripe"></div><div class="g-label">3</div><h3>非公開の保管場所</h3><p>GitHub に非公開で保管して、スマホや自動実行からも使えるように許可します。</p></div>
+    <div class="get"><div class="g-stripe"></div><div class="g-label">4</div><h3>Obsidian の連携</h3><p>AI秘書の記憶の置き場を整えます。導入したら、開かなくて大丈夫です。</p></div>
+  </div>
+  <div class="note ok"><span class="ico">✅</span><span>作業フォルダは<strong>1つだけ</strong>でOK。AI秘書の記憶もスキルも作ったものも、全部この中に貯まっていきます。中の整理は Claude Code がやってくれます。</span></div>
+</section>
+
+<!-- 02 準備 -->
+<section id="ready">
+  <div class="sec-head"><div class="step-num">02</div><h2>準備 — この3つだけ</h2></div>
+  <div class="card">
+    <ol>
+      <li><strong>Claude の有料プラン（Pro か Max）</strong>で、パソコンの Claude Code が使える</li>
+      <li><strong>GitHub のアカウント</strong>がある（まだの人は <a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a> から無料で作れます）</li>
+      <li><strong>ホームフォルダの中に空のフォルダ</strong>を作って、Claude Code で開いている</li>
+    </ol>
+    <div class="note warn"><span class="ico">⚠️</span><span>デスクトップや書類のフォルダには作らないでください。iCloud や OneDrive が同じフォルダをバックアップしていて、GitHub とぶつかることがあります。</span></div>
+  </div>
+
+  <details>
+    <summary>🪟 Windows の方：ホームフォルダの開き方</summary>
+    <div class="d-body">
+      <p>フォルダを選ぶ画面の上にある「場所」の欄をクリックして、下の文字を入力して Enter を押すと、自分の名前のフォルダが開きます。そこで「新しいフォルダー」を押して作ってください。</p>
+      <div class="inline-cmd" style="margin-top:10px"><code id="winPath"></code><button class="copy-btn" data-target="winPath">コピー</button></div>
+      <img class="shot" src="windows-folder.png" alt="Windowsのフォルダ選択画面。上の場所の欄に %USERPROFILE% と入力するところ">
+    </div>
+  </details>
+</section>
+
+<!-- 03 流れ -->
+<section id="install">
+  <div class="sec-head"><div class="step-num">03</div><h2>URLを貼ったあとの流れ</h2></div>
+  <div class="card">
+    <h3>自分で押すのは、この3か所だけ</h3>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="flow-dot">1</div>
+        <div class="flow-body"><b>「許可」を押す</b><span>道具のインストールやファイル作成の前に、Claude Code が確認してきます</span></div>
+      </div>
+      <div class="flow-item"><div class="flow-line"></div></div>
+      <div class="flow-item">
+        <div class="flow-dot">2</div>
+        <div class="flow-body"><b>GitHub にログイン</b><span>画面に出る8文字のコードをブラウザに入れて「Authorize」を押します</span></div>
+      </div>
+      <div class="flow-item"><div class="flow-line"></div></div>
+      <div class="flow-item">
+        <div class="flow-dot">3</div>
+        <div class="flow-body"><b>Claude GitHub App でリポジトリを選ぶ</b><span>「Only select repositories」で、今作ったリポジトリを1つだけ選びます。<strong>ここを飛ばすと、スマホから作業フォルダが選べません</strong></span></div>
+      </div>
+      <div class="flow-item"><div class="flow-line"></div></div>
+      <div class="flow-item">
+        <div class="flow-dot">✓</div>
+        <div class="flow-body"><b>完成</b><span>以後、作業フォルダと GitHub は自動で同期されます</span></div>
+      </div>
+    </div>
+    <div class="note ok"><span class="ico">✅</span><span>パスワードの入力や GitHub の登録は、Claude Code は代わりにやりません（あなたがブラウザでやります）。</span></div>
+  </div>
+
+  <details>
+    <summary>🔁 URLを貼っても始まらないとき</summary>
+    <div class="d-body">
+      <p>Claude Code がページを読めなかったときは、下のメッセージを「コピー」して、代わりに貼ってください。</p>
+      <div class="prompt-box" style="margin-top:12px">
+        <div class="prompt-head">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <span class="fname">導入メッセージ（予備）</span>
+          <button class="copy-btn" data-target="installPrompt">コピー</button>
+        </div>
+        <div class="prompt-scroll"><pre id="installPrompt"></pre></div>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary>📄 Claude Code が読む手順書（中身を見たい人向け）</summary>
+    <div class="d-body">
+      <p>Claude Code は <a href="setup.md">setup.md</a> を読んで案内します。中身はただの手順書（文章）です。</p>
+    </div>
+  </details>
+</section>
+
+<!-- 04 困ったとき -->
+<section id="trouble">
+  <div class="sec-head"><div class="step-num">04</div><h2>困ったとき</h2></div>
+  <p style="color:var(--ink-soft);font-size:.92rem;margin-bottom:8px">基本は、エラーの文章やスクショをそのまま Claude Code に貼れば、原因を調べて直してくれます。</p>
+
+  <details>
+    <summary>あとからスマホで作業フォルダが選べない</summary>
+    <div class="d-body">
+      <p>Claude に作業フォルダを見る許可が出ていません。パソコンのブラウザで <a href="https://github.com/apps/claude/installations/new" target="_blank" rel="noopener">github.com/apps/claude/installations/new</a> を開き、作業フォルダのリポジトリを選んで保存してください。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>GitHub のリポジトリが「Public（公開）」になっていた</summary>
+    <div class="d-body">
+      <p>Claude Code に「作業フォルダのリポジトリを非公開にして」と送れば直してくれます。セットアップの最後にも、Claude Code が自分で確認します。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>途中で止まってしまった</summary>
+    <div class="d-body">
+      <p>同じ作業フォルダを開いた Claude Code に、このページのURLをもう一度貼って「続きから」と送ってください。終わっているところは飛ばして、続きから案内してくれます。</p>
+    </div>
+  </details>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-in">
+    <span>🗂 作業フォルダのセットアップ</span>
+    <span>制作：関 諒也</span>
+  </div>
+</footer>
+
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
